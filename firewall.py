@@ -33,7 +33,6 @@ class Firewall:
             
     def get_rules(self, file):
         rules = []
-
         f = open(file, 'r')
         all_lines = f.readlines()
 
@@ -48,7 +47,6 @@ class Firewall:
 
     def get_geo_ips(self, file):
         result = []
-
         f = open(file, 'r')
         all_lines = f.readlines()
 
@@ -67,7 +65,6 @@ class Firewall:
         while l <= r:
             middle = (l + r) / 2
             curr = arr[middle]
-
             if self.ip_larger_than(curr[0], ip):
                 r = middle - 1
             elif self.ip_larger_than(ip, curr[1]):
