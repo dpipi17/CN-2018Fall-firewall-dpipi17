@@ -16,7 +16,6 @@ class Firewall:
 
         self.rules = self.get_rules(config['rule'])
         self.geo_ips = self.get_geo_ips('geoipdb.txt')
-
     
     # @pkt_dir: either PKT_DIR_INCOMING or PKT_DIR_OUTGOING
     # @pkt: the actual data of the IPv4 packet (including IP header)
@@ -132,7 +131,7 @@ class Firewall:
             ext_port = struct.unpack('!H', proto_header[0:2])[0] if pkt_dir == PKT_DIR_INCOMING else struct.unpack('!H', proto_header[2:4])[0]
 
             # DNS
-            if ext_port == 53 and pkt_dir == PKT_DIR_OUTGOING:
+            if ext_port == 53:
                 
                 return self.dns_situation(proto_header[8:], ext_ip)
     
