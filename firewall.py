@@ -13,11 +13,10 @@ class Firewall:
     def __init__(self, config, iface_int, iface_ext):
         self.iface_int = iface_int
         self.iface_ext = iface_ext
-
         self.rules = self.get_rules(config['rule'])
         self.geo_ips = self.get_geo_ips('geoipdb.txt')
     
-    
+
     # @pkt_dir: either PKT_DIR_INCOMING or PKT_DIR_OUTGOING
     # @pkt: the actual data of the IPv4 packet (including IP header)
     def handle_packet(self, pkt_dir, pkt):
