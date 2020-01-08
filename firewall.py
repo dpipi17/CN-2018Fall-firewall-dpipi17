@@ -20,7 +20,6 @@ class Firewall:
     # @pkt_dir: either PKT_DIR_INCOMING or PKT_DIR_OUTGOING
     # @pkt: the actual data of the IPv4 packet (including IP header)
     def handle_packet(self, pkt_dir, pkt):
-        # TODO: Your main firewall code will be here.
         if (ord(pkt[0]) & 0x0f) < 5 or len(pkt) < 20:
             return
 
