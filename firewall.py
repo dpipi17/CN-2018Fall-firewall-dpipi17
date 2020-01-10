@@ -13,7 +13,6 @@ class Firewall:
     def __init__(self, config, iface_int, iface_ext):
         self.iface_int = iface_int
         self.iface_ext = iface_ext
-
         self.rules = self.get_rules(config['rule'])
         self.geo_ips = self.get_geo_ips('geoipdb.txt')
         self.http_requests = dict()
